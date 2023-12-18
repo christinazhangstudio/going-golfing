@@ -16,3 +16,9 @@ docker run -it md5me
 ```
 
 ...which opens /bin/bash as `CMD`
+
+
+#### wonks
+if get: `$GOPATH/go.mod exists but should not`,
+
+should set `WORKDIR`
