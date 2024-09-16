@@ -1,0 +1,16 @@
+goos: windows
+goarch: amd64
+pkg: github.tesla.com/personal/going-golfing/gotest
+cpu: 11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz
+Benchmark-16    	 6880106	       182.5 ns/op
+Benchmark-16    	 5014468	       238.5 ns/op
+Benchmark-16    	 6968498	       184.9 ns/op
+Benchmark-16    	 6538290	       213.5 ns/op
+Benchmark-16    	 6451262	       189.4 ns/op
+Benchmark-16    	 5337733	       200.8 ns/op
+Benchmark-16    	 6908084	       169.6 ns/op
+Benchmark-16    	 6863684	       172.4 ns/op
+Benchmark-16    	 6498784	       174.6 ns/op
+Benchmark-16    	 7009333	       206.7 ns/op
+PASS
+ok  	github.tesla.com/personal/going-golfing/gotest	14.354s
