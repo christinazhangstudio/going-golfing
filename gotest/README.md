@@ -1,1 +1,1 @@
-Go benchmark examples
+# Go benchmark examples
