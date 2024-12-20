@@ -15,7 +15,7 @@ i guess it's because really `dt-ops::windows::docker` is a "unix shell with a re
 
 i don't know of any instance of installing go for Windows and making `go test` work in the CI, so this may v well be a first "hack" of its kind. this runner is the only 1 i know of that is windows capable and i haven't found anything to hint otherwise...
 
-so we will enable this "hackily"
+so we will *try* to enable this "hackily"
 
 # cross-compiling go tests
 
