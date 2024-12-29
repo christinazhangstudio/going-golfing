@@ -12,7 +12,7 @@ the input device is not a TTY
 Error: Process completed with exit code 1.
 ```
 
-will need to run in the foreground or detached.
+will need to run in the foreground or detached (see reason (a))
 
 Trying foreground:
 ```
@@ -108,6 +108,14 @@ docker rm go-for-windows
 
 *appendix*
 
+## reasons
+(a)
+> https://stackoverflow.com/questions/62786853/docker-run-command-without-it-option
+When you run docker run without -it it's still running the container but you've not given it a command, so it finishes and exits.
+-i is saying keep it alive and work within in the terminal (allow it to be interactive), but if you type exit, you're done and the container stops.
+-t is showing the terminal of within the docker container (see: What are pseudo terminals (pty/tty)?)
+-it allows you to see the terminal in the docker instance and interact with it.
+Additionally you can use -d to run it in the background and then get to it afterwards.
 
 ## to verify the daemon *can indeed* run *a* container...
 
