@@ -1,4 +1,4 @@
-# This is about copying and go-testing files from a Linux runtime into a Windows container
+# copying and go-testing files from a Linux runtime into a Windows container
 
 ## -it mode is disabled (we will have to keep the container running manually) 
 
