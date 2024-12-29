@@ -82,24 +82,26 @@ Running tests...
 ```
 docker exec go-for-windows powershell cd C:\derived-output-event-system; go test -v ./...
 ```
+We will need:
+```
+docker logs go-for-windows
+```
+since `go test` won't print onto console otherwise (since this is detached mode!)
 
 ## In conclusion, a working block of docker commands look like:
 
 ```
-docker stop go-for-windows
-docker rm go-for-windows
-docker run --name go-for-windows mcr.microsoft.com/windows/servercore:ltsc2019 powershell -NoExit -Command "echo Hello; Start-Sleep -Seconds 100000"
+docker run -d --name go-for-windows mcr.microsoft.com/windows/servercore:ltsc2019 powershell -NoExit -Command "echo Hello; Start-Sleep -Seconds 3600"
 docker exec go-for-windows powershell mkdir C:\derived-output-event-system
 docker cp /runner/_work/derived-output-event-system/derived-output-event-system go-for-windows:C:/derived-output-event-system/
 docker exec go-for-windows powershell -Command \
             "& { Invoke-WebRequest -Uri 'https://go.dev/dl/go1.22.10.windows-amd64.msi' -OutFile 'go.msi'; \
             Start-Process -FilePath 'msiexec.exe' -ArgumentList '/i', 'go.msi', '/quiet', '/norestart' -NoNewWindow -Wait; \
-            Remove-Item -Path 'go.msi' }"
-docker exec go-for-windows powershell Get-ChildItem -Path "'C:\\Program Files\\Go\\bin'"
 docker exec go-for-windows powershell -Command "{ cd C:\derived-output-event-system; & 'C:\Program Files\Go\bin\go.exe' test -v ./... }"
-```
 
-but `go test` is not printing onto console (since this is detached mode!)
+docker stop go-for-windows
+docker rm go-for-windows
+```
 
 
 
