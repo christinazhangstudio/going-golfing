@@ -83,6 +83,8 @@ ofc we're not going down the QEMU rabbit hole, and this post is all just to say 
 
 # in conclusion: use QEMU or Docker for cross-platform go tests
 
+see [Copying and running go tests from a Linux runtime into a Windows container](https://github.com/christinazhangstudio/going-golfing/blob/14763788be2ef907ecddb83ae255751540d16eff/yaps/windows-docker-daemon.md) for the continuation
+
 *appendix:*
 ## reasons
 (a) 
