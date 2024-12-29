@@ -82,11 +82,9 @@ Running tests...
 ```
 docker exec go-for-windows powershell cd C:\derived-output-event-system; go test -v ./...
 ```
-We will need:
-```
-docker logs go-for-windows
-```
-since `go test` won't print onto console otherwise (since this is detached mode!)
+Trying `> C:\derived-output-event-system\go-test-output.txt }` since `go test` won't print onto console otherwise (since this is detached mode!)
+
+I tried `docker logs`, and this, albeit printed my test `echo Hello;`, did not print my test output. 
 
 ## In conclusion, a working block of docker commands look like:
 
