@@ -82,9 +82,10 @@ Running tests...
 ```
 docker exec go-for-windows powershell cd C:\derived-output-event-system; go test -v ./...
 ```
-Trying `> C:\derived-output-event-system\go-test-output.txt }` since `go test` won't print onto console otherwise (since this is detached mode!)
 
-I tried `docker logs`, and this, albeit printed my test `echo Hello;`, did not print my test output. 
+I tried `docker logs`, and this, albeit printed my test `echo Hello;`, did not print my test output.  
+
+Ah! You will need `-NoExit`, see reason (b)
 
 ## In conclusion, a working block of docker commands look like:
 
@@ -101,12 +102,16 @@ docker stop go-for-windows
 docker rm go-for-windows
 ```
 
+this didn't work btw:
+```
+docker start -ai go-for-windows powershell -Command "echo Hello; Start-Sleep -Seconds 3600"
+```
+resulted in
+```
+unknown shorthand flag: 'C' in -Command
+```
 
-
-
-
----
-
+I decided against using `start` because it gave me problems with running background commands...
 
 
 *appendix*
@@ -119,6 +124,10 @@ When you run docker run without -it it's still running the container but you've 
 -t is showing the terminal of within the docker container (see: What are pseudo terminals (pty/tty)?)
 -it allows you to see the terminal in the docker instance and interact with it.
 Additionally you can use -d to run it in the background and then get to it afterwards.
+
+## reasons
+(b)
+> 
 
 ## to verify the daemon *can indeed* run *a* container...
 
