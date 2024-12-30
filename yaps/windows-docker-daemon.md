@@ -85,7 +85,7 @@ docker exec go-for-windows powershell cd C:\derived-output-event-system; go test
 
 I tried `docker logs`, and this, albeit printed my test `echo Hello;`, did not print my test output.  
 
-Ah! You will need `-NoExit`, see reason (b)
+Ah! You will need `-NoExit`
 
 ## In conclusion, a working block of docker commands look like:
 
@@ -124,10 +124,6 @@ When you run docker run without -it it's still running the container but you've 
 -t is showing the terminal of within the docker container (see: What are pseudo terminals (pty/tty)?)
 -it allows you to see the terminal in the docker instance and interact with it.
 Additionally you can use -d to run it in the background and then get to it afterwards.
-
-## reasons
-(b)
-> 
 
 ## to verify the daemon *can indeed* run *a* container...
 
